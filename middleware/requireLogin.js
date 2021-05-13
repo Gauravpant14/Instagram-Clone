@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
     const { _id } = payload;
     User.findById(_id).then((userData) => {
       req.user = userData; //here userData now is availavble in req.user
+      next(); // for to continuing further or for using another middleware we use this next() keyword
     });
-    next(); // for to continuing further or for using another middleware we use this next() keyword
   });
 };
